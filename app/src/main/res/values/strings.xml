@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">WLauncher</string>
+    <string name="app_version">2.0 Alpha</string>
+
+    <string name="deleter_text_cancel">Cancel</string>
+    <string name="deleter_text_delete">Delete</string>
+    <string name="deleter_text_info">Information</string>
+</resources>

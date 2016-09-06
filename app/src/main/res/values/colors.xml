@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">@android:color/transparent</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="drawer_scrim_color">#70000000</color>
+    <color name="deleter_bg">#66000000</color>
+    <color name="init_bg">#622cd3</color>
+</resources>

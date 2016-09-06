@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wlauncher.gvs.com.wlauncher.menu.IconView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/IconView"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    menu="@bool/menu">
+
+    <View
+        android:layout_width="10dp"
+        android:layout_height="10dp" />
+
+    <ImageView
+        android:layout_width="@android:dimen/app_icon_size"
+        android:layout_height="@android:dimen/app_icon_size"
+        android:id="@+id/icon" />
+
+    <View
+        android:layout_width="5dp"
+        android:layout_height="5dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textSize="12sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:lines="2"
+        android:textColor="@android:color/white"
+        android:gravity="center_horizontal"
+        android:id="@+id/title" />
+
+</wlauncher.gvs.com.wlauncher.menu.IconView>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="5dp"
+        android:layout_height="5dp"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:hint="Search..."
+            android:textSize="16sp"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:background="@android:color/transparent"
+            android:cursorVisible="false"/>
+
+        <ImageView
+            android:id="@+id/searchBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_search"
+            android:tint="#ffffffff"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="2dp"
+        android:layout_height="2dp"/>
+
+    <GridView
+        android:id="@+id/applications"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        android:scrollbars="none"
+        android:overScrollMode="never"
+        android:scrollingCache="false"
+        android:animationCache="false"
+        android:smoothScrollbar="true"
+        android:fadingEdge="vertical"
+        android:fadingEdgeLength="25dp"
+        android:requiresFadingEdge="vertical"
+        android:background="@android:color/transparent"/>
+
+</LinearLayout>
