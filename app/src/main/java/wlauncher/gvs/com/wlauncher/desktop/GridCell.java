@@ -3,6 +3,7 @@ package wlauncher.gvs.com.wlauncher.desktop;
 import android.content.Context;
 import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.Gravity;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.RelativeLayout;
 import wlauncher.gvs.com.wlauncher.R;
 import wlauncher.gvs.com.wlauncher.Utils;
 import wlauncher.gvs.com.wlauncher.state;
+import wlauncher.gvs.com.wlauncher.view.DragListener;
 
 /**
  * Created by dns1 on 03.09.2016.
@@ -75,29 +77,7 @@ public class GridCell extends RelativeLayout {
         cells.setOrientation(LinearLayout.VERTICAL);
         cells.setGravity(Gravity.CENTER_HORIZONTAL);
         cells.setId(state.CountIndexCell);
-        cells.setOnDragListener(new OnDragListener() {
-            @Override
-            public boolean onDrag(View view, DragEvent dragEvent) {
-                int action = dragEvent.getAction();
-                if (action == DragEvent.ACTION_DRAG_STARTED) {
-                    view.setBackgroundResource(R.drawable.add);
-                    Utils.DeleterVisible(true);
-                }
-                if (action == DragEvent.ACTION_DROP) {
-                    if (state.DragState.equals(state.STATE_DRAG_MENUTODESKTOP)) {
-                        ((ViewGroup) view).addView(Utils.createIcon(context));
-                    }
-                    if (state.DragState.equals(state.STATE_DRAG_DESKTOPTOCELL)) {
-
-                    }
-                }
-                if (action == DragEvent.ACTION_DRAG_ENDED) {
-                    view.setBackgroundColor(Color.TRANSPARENT);
-                    Utils.DeleterVisible(false);
-                }
-                return true;
-            }
-        });
+        cells.setOnDragListener(new DragListener(context, state.CountIndexCell));
         cells.destroyDrawingCache();
     }
 
@@ -205,7 +185,6 @@ public class GridCell extends RelativeLayout {
                     topShow = 1;
                 }
             }
-
             params.topMargin = top;
             cells.setLayoutParams(params);
             cells.destroyDrawingCache();

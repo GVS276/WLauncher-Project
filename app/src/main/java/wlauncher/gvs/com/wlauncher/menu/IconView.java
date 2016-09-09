@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import wlauncher.gvs.com.wlauncher.R;
 import wlauncher.gvs.com.wlauncher.Utils;
+import wlauncher.gvs.com.wlauncher.secure.SecureConfig;
 import wlauncher.gvs.com.wlauncher.state;
 
 /**
@@ -72,10 +73,13 @@ public class IconView extends LinearLayout implements View.OnClickListener, View
 
     @Override
     public void onClick(View view) {
+        SecureConfig.SecureConfigStart();
+        /*
         Utils.RunIntent(context,
                 new ComponentName(
                         Utils.getPersistedValue(1, (String) mTitle.getTag()),
                         Utils.getPersistedValue(2, (String) mTitle.getTag())));
+                        */
     }
 
     @Override

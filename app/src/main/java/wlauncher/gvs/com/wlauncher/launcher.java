@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import wlauncher.gvs.com.wlauncher.menu.IconInfo;
 import wlauncher.gvs.com.wlauncher.menu.MenuAdapter;
 import wlauncher.gvs.com.wlauncher.menu.MenuLoader;
+import wlauncher.gvs.com.wlauncher.secure.SecureConfig;
 
 public class launcher extends AppCompatActivity implements LoaderManager.LoaderCallbacks<ArrayList<IconInfo>>{
 
@@ -20,6 +21,7 @@ public class launcher extends AppCompatActivity implements LoaderManager.LoaderC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_launcher);
+        SecureConfig.SecureConfigInit(this);
 
         mGridView = (GridView)findViewById(R.id.applications);
         mAdapter = new MenuAdapter(this);
@@ -31,6 +33,12 @@ public class launcher extends AppCompatActivity implements LoaderManager.LoaderC
     public void onStart() {
         super.onStart();
         state.launcher = this;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        SecureConfig.SecureConfigDestroy();
     }
 
     @Override

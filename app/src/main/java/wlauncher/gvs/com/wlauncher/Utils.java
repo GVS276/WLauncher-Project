@@ -3,14 +3,19 @@ package wlauncher.gvs.com.wlauncher;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.view.GravityCompat;
+import android.util.Log;
+import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import wlauncher.gvs.com.wlauncher.desktop.DesktopViewPager;
 import wlauncher.gvs.com.wlauncher.menu.IconView;
+import wlauncher.gvs.com.wlauncher.view.DragListener;
 import wlauncher.gvs.com.wlauncher.view.NewDrawerLayout;
 
 /**
@@ -67,11 +72,23 @@ public class Utils {
         return icon;
     }
 
-    public static void DeleterVisible(boolean value)
+    public static void DeleterVisible(final Context c, boolean value, final boolean pass)
     {
         int i;
         if (value) { i = View.VISIBLE; } else { i = View.GONE; }
-        ((RelativeLayout) state.launcher.findViewById(R.id.deleter)).setVisibility(i);
+
+        RelativeLayout deleter = (RelativeLayout) state.launcher.findViewById(R.id.deleter);
+        deleter.setVisibility(i);
+
+        TextView info_or_pass = (TextView) state.launcher.findViewById(R.id.deleter_info_and_pass);
+        if (pass) {
+            info_or_pass.setText(c.getResources().getString(R.string.deleter_text_password));
+        } else {
+            info_or_pass.setText(c.getResources().getString(R.string.deleter_text_info));
+        }
+
+        info_or_pass.setTag(pass);
+        info_or_pass.setOnDragListener(new DragListener(c, info_or_pass.getId()));
     }
 
     public static void addNewDesktop()

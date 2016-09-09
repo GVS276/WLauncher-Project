@@ -37,7 +37,7 @@ public class SecureConfig {
                 dialog.show();
             }
         };
-        
+
         context.registerReceiver(init, new IntentFilter("StartSecurity"));
     }
 
